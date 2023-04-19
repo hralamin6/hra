@@ -1,0 +1,30 @@
+{
+  "__commonjsHelpers-725317a4.js": {
+    "file": "assets/_commonjsHelpers-725317a4.js"
+  },
+  "public/font/a.ttf": {
+    "file": "assets/a-3dea1214.ttf",
+    "src": "public/font/a.ttf"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-ef75650e.js",
+    "imports": [
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/bootstrap.js": {
+    "file": "assets/bootstrap-4a6a4717.js",
+    "imports": [
+      "__commonjsHelpers-725317a4.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/bootstrap.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-9eedf7a2.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}
