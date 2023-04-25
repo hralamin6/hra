@@ -41,7 +41,10 @@
             }
         }
     </style>
+    @laravelPWA
+{{--    @vite(['resources/js/larasocket.js'])--}}
     @vite(['resources/js/bootstrap.js'])
+
     @vite(['resources/sass/app.scss'])
     @livewireStyles
     @vite(['resources/js/app.js'])
@@ -50,7 +53,6 @@
 <body class="dark:bg-danger text-tahiti scrollbar-none" x-data="{nav: false, dark: $persist(false)}" :class="{'dark': dark}">
 @yield('body')
 @livewireScripts
-
 <script src="{{ asset('js/sa.js') }}"></script>
 <x-livewire-alert::scripts />
 <script src="{{ asset('js/spa.js') }}" data-turbolinks-eval="false"></script>

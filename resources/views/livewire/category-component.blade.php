@@ -2,6 +2,9 @@
 addModal() { this.modal = true; this.editMode = false; $nextTick(() => $refs.input.focus()); },
 editModal(id) { $wire.loadData(id); this.modal = true; this.editMode = true; $nextTick(() => $refs.input.focus()); },
 closeModal() { this.modal = false; this.editMode = false; $wire.resetData()},
+notify() {
+            Push.create('Hello World!');
+}
 }"
      x-init="
      $wire.on('dataAdded', (e) => {
@@ -17,7 +20,9 @@ closeModal() { this.modal = false; this.editMode = false; $wire.resetData()},
             element.classList.remove('dark:bg-gray-500')
             element.classList.remove('animate-pulse')
             }, 5000)
-            })
+                        Push.create('Hello World!');
+
+            });
         "
      @open-delete-modal.window="
      model = event.detail.model

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88920301690f554f9a46d7060b2e5060",
+    "content-hash": "5356f66b03f0053390417ee0c1382752",
     "packages": [
         {
             "name": "barryvdh/laravel-translation-manager",
@@ -1872,6 +1872,58 @@
                 }
             ],
             "time": "2023-02-15T18:05:31+00:00"
+        },
+        {
+            "name": "larasocket/larasocket-driver",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/larasocket/larasocket-driver.git",
+                "reference": "5dae5bf8b9932885d6773932024e6a8218178973"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/larasocket/larasocket-driver/zipball/5dae5bf8b9932885d6773932024e6a8218178973",
+                "reference": "5dae5bf8b9932885d6773932024e6a8218178973",
+                "shasum": ""
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larasocket\\LarasocketServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Larasocket\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zach Vander Velden",
+                    "email": "zachvv11@gmail.com"
+                }
+            ],
+            "description": "Pay as you go broadcast driver for Laravel.",
+            "homepage": "https://larasocket.com",
+            "keywords": [
+                "Broadcast",
+                "driver",
+                "larasocket",
+                "laravel",
+                "websocket"
+            ],
+            "support": {
+                "issues": "https://github.com/larasocket/larasocket-driver/issues",
+                "source": "https://github.com/larasocket/larasocket-driver/tree/1.0.4"
+            },
+            "time": "2021-05-11T03:13:21+00:00"
         },
         {
             "name": "laravel-frontend-presets/tall",
@@ -4555,6 +4607,56 @@
                 }
             ],
             "time": "2022-10-12T17:22:51+00:00"
+        },
+        {
+            "name": "silviolleite/laravelpwa",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silviolleite/laravel-pwa.git",
+                "reference": "5f7135d2ee870af01793c9fdf6b1b932b546e20e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silviolleite/laravel-pwa/zipball/5f7135d2ee870af01793c9fdf6b1b932b546e20e",
+                "reference": "5f7135d2ee870af01793c9fdf6b1b932b546e20e",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelPWA\\Providers\\LaravelPWAServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelPWA\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Silvio Luis Leite",
+                    "email": "silviolleite@gmail.com"
+                }
+            ],
+            "description": "Looks like an app, feels like an app, but NOT an app.",
+            "keywords": [
+                "laravel",
+                "php",
+                "progressive web apps",
+                "pwa"
+            ],
+            "support": {
+                "issues": "https://github.com/silviolleite/laravel-pwa/issues",
+                "source": "https://github.com/silviolleite/laravel-pwa/tree/2.0.3"
+            },
+            "time": "2020-08-20T12:19:16+00:00"
         },
         {
             "name": "spatie/image",

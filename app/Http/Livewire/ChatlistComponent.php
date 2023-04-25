@@ -9,6 +9,7 @@ use App\Models\Message;
 use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use function Symfony\Component\Translation\t;
 
 class ChatlistComponent extends Component
 {
@@ -41,29 +42,26 @@ class ChatlistComponent extends Component
     }
     public function broadcastedMessageRead($event)
     {
-//        dd($event);
 
         if($this->selectedConversation){
-
-
 
             if((int) $this->selectedConversation->id === (int) $event['conversation_id']){
 
                 $this->dispatchBrowserEvent('markMessageAsRead');
             }
-
         }
-
-        # code...
     }
-    function broadcastedMessageReceived()
+    function broadcastedMessageReceived($event)
     {
         if ($this->selectedConversation) {
             $this->messages = $this->data;
             $this->scrollBottom(true);
             Message::where('conversation_id',$this->selectedConversation->id)
                 ->where('receiver_id',auth()->user()->id)->update(['read'=> 1]);
-            broadcast(new MessageRead($this->selectedConversation->id, $this->getChatUserInstance($this->selectedConversation, $name = 'id')));
+            broadcast(new MessageRead($this->selectedConversation->id, $this->getChatUserInstance($this->selectedConversation, $name = 'id')))->toOthers();
+            $this->emit('browserMessage', ['messageBody'=>$event['message'],'userName' => User::find($event['sender_id'])->name, 'link'=> route('dashboard')]);
+            $this->alert('success', __('New message from '.User::find($event['sender_id'])->name).' '.$event['message']);
+
         }
 
     }
@@ -107,13 +105,16 @@ class ChatlistComponent extends Component
     }
     public function mount()
     {
-        $this->selectedConversation =  Conversation::where('sender_id', auth()->id())
-            ->orWhere('receiver_id', auth()->id())->orderBy('last_time_message', 'DESC')->first();
-        $this->receiver =  $this->getChatUserInstance($this->selectedConversation, $name = 'id');
-        $this->messages = $this->data;
-        Message::where('conversation_id',$this->selectedConversation->id)
-            ->where('receiver_id',auth()->user()->id)->update(['read'=> 1]);
-        $this->scrollBottom(false);
+        if ($this->conversations->count()>0){
+            $this->selectedConversation =  Conversation::where('sender_id', auth()->id())
+                ->orWhere('receiver_id', auth()->id())->orderBy('last_time_message', 'DESC')->first();
+            $this->receiver =  $this->getChatUserInstance($this->selectedConversation, $name = 'id');
+            $this->messages = $this->data;
+            Message::where('conversation_id',$this->selectedConversation->id)
+                ->where('receiver_id',auth()->user()->id)->update(['read'=> 1]);
+            $this->scrollBottom(false);
+        }
+
     }
     public function scrollBottom($isTrue)
     {
@@ -132,12 +133,13 @@ class ChatlistComponent extends Component
                 'receiver_id' => $this->receiver,
                 'body' => $this->body,
             ]);
+            $body = $this->body;
             $this->selectedConversation->last_time_message = $this->createdMessage->created_at;
             $this->selectedConversation->save();
             $this->messages = $this->data;
             $this->scrollBottom(true);
             $this->reset('body');
-            broadcast(new MessageSent(auth()->id(), $this->selectedConversation->id, $this->receiver));
+            broadcast(new MessageSent(auth()->id(), $this->selectedConversation->id, $this->receiver, $body))->toOthers();
         }
 
     }
@@ -146,10 +148,14 @@ class ChatlistComponent extends Component
         $message_count = Message::where('conversation_id',  $this->selectedConversation->id)->count();
         return Message::where('conversation_id',  $this->selectedConversation->id)->skip($message_count-$this->paginateVar)->take($this->paginateVar)->get();
     }
+    public function getConversationsProperty()
+    {
+        return Conversation::where('sender_id', auth()->id())
+            ->orWhere('receiver_id', auth()->id())->orderBy('last_time_message', 'DESC')->get();
+    }
     public function render()
     {
-        $conversations = Conversation::where('sender_id', auth()->id())
-            ->orWhere('receiver_id', auth()->id())->orderBy('last_time_message', 'DESC')->get();
+        $conversations = $this->conversations;
         return view('livewire.chatlist-component', compact('conversations'));
     }
 }

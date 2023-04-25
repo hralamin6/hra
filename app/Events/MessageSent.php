@@ -16,27 +16,28 @@ class MessageSent implements ShouldBroadcast
     public $sender_id;
     public $conversation_id;
     public $receiver_id;
+    public $body;
 
-    public function __construct($sender_id, $conversation_id, $receiver_id)
+    public function __construct($sender_id, $conversation_id, $receiver_id, $body)
     {
 
         $this->sender_id= $sender_id;
         $this->conversation_id= $conversation_id;
         $this->receiver_id= $receiver_id;
+        $this->body= $body;
     }
 
 
-//    public function broadcastWith( )
-//    {
-//
-//        return [
-//            'sender_id'=>$this->sender_id,
-//            'conversation_id'=>$this->conversation_id,
-//            'receiver_id'=>$this->receiver_id,
-//        ];
-//        # code...
-//    }
-//
+    public function broadcastWith()
+    {
+
+        return [
+            'sender_id'=>$this->sender_id,
+            'conversation_id'=>$this->conversation_id,
+            'receiver_id'=>$this->receiver_id,
+            'message'=>$this->body,
+        ];
+    }
 
     /**
      * Get the channels the event should broadcast on.

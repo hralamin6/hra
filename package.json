@@ -24,7 +24,9 @@
         "@alpinejs/intersect": "^3.8.1",
         "@alpinejs/morph": "^3.8.1",
         "@alpinejs/persist": "^3.8.1",
+        "larasocket-js": "^1.0.16",
         "laravel-echo": "^1.15.0",
+        "push.js": "^1.0.12",
         "pusher-js": "^8.0.2",
         "turbolinks": "^5.2.0"
     }
