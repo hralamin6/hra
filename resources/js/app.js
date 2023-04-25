@@ -8,10 +8,9 @@ import Collapse from '@alpinejs/collapse'
 import Intersect from '@alpinejs/intersect'
 import Morph from '@alpinejs/morph'
 import Focus from '@alpinejs/focus'
-import Push from 'push.js'
+// import Push from 'push.js'
 
 // window.Push = Push
-Push.create('Hello World!')
 window.Alpine = Alpine
 Alpine.plugin(Collapse)
 Alpine.plugin(Persist)
