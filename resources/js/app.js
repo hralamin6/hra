@@ -10,8 +10,8 @@ import Morph from '@alpinejs/morph'
 import Focus from '@alpinejs/focus'
 import Push from 'push.js'
 
-window.Push = Push
-
+// window.Push = Push
+Push.create('Hello World!')
 window.Alpine = Alpine
 Alpine.plugin(Collapse)
 Alpine.plugin(Persist)

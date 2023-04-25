@@ -137,9 +137,9 @@ Echo.private(`chat.${receivingId}`)
                                         </div>
                                         <div class="{{ auth()->id() == $message->sender_id ? 'flex-row-reverse' : '' }}">
                                             <p class="text-xs text-gray-500 dark:text-gray-400">{{ $message->created_at->format('m: i a') }}</p>
-                                            @if($message->sender_id === auth()->id()&& $message->read == 1)
+                                            @if($message->sender_id == auth()->id()&& $message->read == 1)
                                                 <p class="text-xs text-green-500 dark:text-green-300 float-right"><x-h-o-eye class="h-4"/></p>
-                                            @elseif($message->sender_id === auth()->id()&& $message->read == 0)
+                                            @elseif($message->sender_id == auth()->id()&& $message->read == 0)
                                                 <p class="text-xs text-red-500 dark:text-red-300 float-right"><x-h-o-eye-slash class="h-4"/></p>
                                             @endif
                                         </div>

@@ -60,7 +60,7 @@ class ChatlistComponent extends Component
                 ->where('receiver_id',auth()->user()->id)->update(['read'=> 1]);
             broadcast(new MessageRead($this->selectedConversation->id, $this->getChatUserInstance($this->selectedConversation, $name = 'id')))->toOthers();
             $this->emit('browserMessage', ['messageBody'=>$event['message'],'userName' => User::find($event['sender_id'])->name, 'link'=> route('dashboard')]);
-            $this->alert('success', __('New message from '.User::find($event['sender_id'])->name).' '.$event['message']);
+//            $this->alert('success', __('New message from '.User::find($event['sender_id'])->name).' '.$event['message']);
 
         }
 

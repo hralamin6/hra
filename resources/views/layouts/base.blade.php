@@ -41,7 +41,6 @@
             }
         }
     </style>
-    @laravelPWA
 {{--    @vite(['resources/js/larasocket.js'])--}}
     @vite(['resources/js/bootstrap.js'])
 
@@ -49,6 +48,8 @@
     @livewireStyles
     @vite(['resources/js/app.js'])
     @stack('js')
+    @laravelPWA
+
 </head>
 <body class="dark:bg-danger text-tahiti scrollbar-none" x-data="{nav: false, dark: $persist(false)}" :class="{'dark': dark}">
 @yield('body')
