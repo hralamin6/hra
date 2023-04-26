@@ -2,15 +2,17 @@
   "__commonjsHelpers-725317a4.js": {
     "file": "assets/_commonjsHelpers-725317a4.js"
   },
-  "_echo-97da9b6e.js": {
-    "file": "assets/echo-97da9b6e.js"
-  },
   "public/font/a.ttf": {
     "file": "assets/a-3dea1214.ttf",
     "src": "public/font/a.ttf"
   },
+  "resources/css/app.css": {
+    "file": "assets/app-636cc05e.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-ef75650e.js",
+    "file": "assets/app-43a8d466.js",
     "imports": [
       "__commonjsHelpers-725317a4.js"
     ],
@@ -18,26 +20,11 @@
     "src": "resources/js/app.js"
   },
   "resources/js/bootstrap.js": {
-    "file": "assets/bootstrap-21afa17d.js",
+    "file": "assets/bootstrap-4a6a4717.js",
     "imports": [
-      "_echo-97da9b6e.js",
       "__commonjsHelpers-725317a4.js"
     ],
     "isEntry": true,
     "src": "resources/js/bootstrap.js"
-  },
-  "resources/js/larasocket.js": {
-    "file": "assets/larasocket-997ca99e.js",
-    "imports": [
-      "_echo-97da9b6e.js",
-      "__commonjsHelpers-725317a4.js"
-    ],
-    "isEntry": true,
-    "src": "resources/js/larasocket.js"
-  },
-  "resources/sass/app.scss": {
-    "file": "assets/app-398de08d.css",
-    "isEntry": true,
-    "src": "resources/sass/app.scss"
   }
 }

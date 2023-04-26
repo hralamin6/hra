@@ -41,17 +41,15 @@
             }
         }
     </style>
-{{--    @vite(['resources/js/larasocket.js'])--}}
     @vite(['resources/js/bootstrap.js'])
-
-    @vite(['resources/sass/app.scss'])
+    @vite(['resources/css/app.css'])
     @livewireStyles
     @vite(['resources/js/app.js'])
     @stack('js')
     @laravelPWA
     <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js" integrity="sha512-eiqtDDb4GUVCSqOSOTz/s/eiU4B31GrdSb17aPAA4Lv/Cjc8o+hnDvuNkgXhSI5yHuDvYkuojMaQmrB5JB31XQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<body class="dark:bg-danger text-tahiti scrollbar-none" x-data="{nav: false, dark: $persist(false)}" :class="{'dark': dark}">
+<body class="dark:bg-danger text-tahiti scrollbar-none" x-data="{nav: false, dark: $persist(true)}" :class="{'dark': dark}">
 @yield('body')
 @livewireScripts
 <script src="{{ asset('js/sa.js') }}"></script>

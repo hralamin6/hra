@@ -39,15 +39,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/invoices', \App\Http\Livewire\InvoiceComponent::class)->name('invoices');
 
 
-
+    Route::get('/quiz', \App\Http\Livewire\Quiz\HomeComponent::class)->name('quiz.home');
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('login', Login::class)
-        ->name('login');
+    Route::get('login', Login::class)->name('login');
+    Route::get('register', Register::class)->name('register');
+    Route::get('auth/{provider}/redirect', [\App\Http\Controllers\SocialiteController::class, 'loginSocial'])->name('socialite.auth');
+    Route::get('auth/{provider}/callback', [\App\Http\Controllers\SocialiteController::class, 'callbackSocial'])->name('socialite.callback');
 
-    Route::get('register', Register::class)
-        ->name('register');
 });
 
 Route::get('password/reset', Email::class)
