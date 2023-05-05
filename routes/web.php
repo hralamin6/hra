@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/invoices', \App\Http\Livewire\InvoiceComponent::class)->name('invoices');
 
 
-    Route::get('/quiz', \App\Http\Livewire\Quiz\HomeComponent::class)->name('quiz.home');
+    Route::get('/nf', \App\Http\Livewire\Newsfeed\HomeComponent::class)->name('newsfeed.home');
 });
 
 Route::middleware('guest')->group(function () {

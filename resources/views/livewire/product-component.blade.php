@@ -136,7 +136,8 @@ Swal.fire({
                                 <td class="px-4 py-3 text-sm flex gap-1 overflow-x-scroll">
                                     @foreach($item->getMedia() as $k => $media)
                                         <div class="border dark:border-gray-600 text-center">
-                                            <img style="height: 44px; width: 55px;" src="{{$media->getAvailableUrl(['thumb'])}}" onerror="this.onerror=null;this.src='https://picsum.photos/id/10/600/300';">
+                                            <img style="height: 44px; width: 55px;" src="{{$media->getAvailableUrl(['thumb'])}}"
+                                                 onerror="this.onerror=null;this.src='https://picsum.photos/id/10/600/300';">
                                             <button class="text-pink-500" wire:click.prevent="deleteMedia({{$item}}, {{$k}})"><x-h-o-x-mark class="w-5"/></button>
                                         </div>
                                     @endforeach

@@ -8,15 +8,15 @@
     <meta property="og:title" content="@yield('title', 'Home Page') - {{config('app.name')}}" />
     <meta property="og:description" content="@yield('description', 'Easily make and customize your class note according to subject and chapter wise') - {{config('app.name')}}" />
     <meta property="og:url" content="@yield('url', config('app.url'))" />
-    <meta property="og:image" content="{{ url(asset('icon.jpg')) }}" />
-    <meta property="og:image:secure_url" content="{{ url(asset('icon.jpg')) }}" />
+    <meta property="og:image" content="@yield('image', url(asset('favicon.ico')))" />
+    <meta property="og:image:secure_url" content="{{ url(asset('favicon.ico')) }}" />
     <meta property="og:site_name" content="{{config('app.name')}}" />
     <meta property="og:image:width" content="1536" />
     <meta property="og:image:height" content="1024" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:description" content="@yield('description', 'Easily make and customize your class note according to subject and chapter wise') - {{config('app.name')}}" />
     <meta name="twitter:title" content="@yield('title', 'Home Page') - {{config('app.name')}}" />
-    <meta name="twitter:image" content="{{ url(asset('icon.jpg')) }}" />
+    <meta name="twitter:image" content="{{ url(asset('favicon.ico')) }}" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     @hasSection('title')
 
@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js" ></script>
     <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
-    {{--        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">--}}
+            <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
         [x-cloak] {
             display: none;
@@ -41,6 +41,7 @@
             }
         }
     </style>
+
     @vite(['resources/js/bootstrap.js'])
     @vite(['resources/css/app.css'])
     @livewireStyles

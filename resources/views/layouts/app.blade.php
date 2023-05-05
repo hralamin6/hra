@@ -14,12 +14,25 @@
              x-transition:leave-end="opacity-0"
              class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
         ></div>
+        @php
+            if (!is_null(request()->route())) {
+            $pageName = request()->route()->getName();
+            $routePrefix = explode('.', $pageName)[0] ?? '';
+            }
+        @endphp
+        @if($routePrefix == "newsfeed")
+            @include('layouts.newsfeed-sidebar')
+        @else
         @include('layouts.sidebar')
-        {{--        <livewire:sidebar-component />--}}
+        @endif
         <div class="flex flex-col flex-1 w-full">
-            <livewire:header-component />
-{{--                        @include('layouts.header')--}}
-            <main class="h-full overflow-y-auto dark:bg-darkBg">
+            @if($routePrefix == "newsfeed")
+                @include('layouts.newsfeed-header')
+            @else
+                <livewire:header-component />
+            @endif
+
+            <main class="h-full overflow-y-auto  @if($routePrefix == "newsfeed") bg-gray-100 h-screen @endif dark:bg-darkBg">
                 <div class="m-2">
 
                     @yield('content')
